@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Сканер XSS-уязвимостей</h1>
+    <h2>Сканирование сайта {{ url }}</h2>
+    {% for item in internal_urls %}
+        {{ scan_reflected_xss(item) }} <br>
+    {% endfor %}
+{% endblock %}
