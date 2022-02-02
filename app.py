@@ -142,7 +142,7 @@ def scan_reflected_xss(url):
 class ScanForm(FlaskForm):
     url = StringField("Введите адрес: ", validators=[DataRequired(), URL(message='Must be a valid URL')])
     scan_type = SelectField(u"Тип сканирования: ", validators=[DataRequired()],
-                            choices=[('1','Reflected XSS'), ('2','Stored'), ('3','Dom-based XSS'), ('4','Полное')])
+                            choices=[('1', 'Reflected XSS'), ('2', 'Stored'), ('3', 'Dom-based XSS'), ('4', 'Full Scan')])
     submit = SubmitField("Отправить")
 
 
@@ -164,10 +164,13 @@ def main_page():
 @app.route('/scan', methods=['GET', 'POST'])
 def scan_page():
     url = ''
+    scan_type = ''
     if request.method == 'POST':
         url = request.form.get('url')
+        scan_type = request.form.get('scan_type')
     get_sitemap(url)
-    return render_template('scan.html', scan_reflected_xss=scan_reflected_xss, internal_urls=internal_urls, url=url)
+    return render_template('scan.html', scan_reflected_xss=scan_reflected_xss,
+                           internal_urls=internal_urls, url=url, scan_type=scan_type)
 
 
 if __name__ == '__main__':

@@ -2,9 +2,8 @@
 
 {% block content %}
     <h1>Сканер XSS-уязвимостей</h1>
-
-    <form action="scan" method="POST">
-        {{ form.url.label }} {{ form.url() }} {{ form.scan_type }}
+    <form method="POST" action="scan">
+        {{ form.url.label }} {{ form.url }} {{ form.scan_type }}
         {{ form.submit() }}
     </form>
 {% endblock %}
