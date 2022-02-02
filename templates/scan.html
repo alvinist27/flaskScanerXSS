@@ -7,7 +7,9 @@
     {% if scan_type=='1' %}
         <h2>Тип сканирования: Reflected</h2>
         {% for item in internal_urls %}
-            {{ scan_reflected_xss(item) }} <br>
+            {% if scan_reflected_xss(item) %}
+                {{ item }} - Reflected XSS<br>
+            {% endif %}
         {% endfor %}
     {% elif scan_type=='2' %}
         <h2>Тип сканирования: Stored</h2>
