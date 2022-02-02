@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import URL, DataRequired
 
 
@@ -139,8 +139,10 @@ def scan_reflected_xss(url):
 
 
 # Класс, отвечающий за работу с формой
-class URLForm(FlaskForm):
+class ScanForm(FlaskForm):
     url = StringField("Введите адрес: ", validators=[DataRequired(), URL(message='Must be a valid URL')])
+    scan_type = SelectField(u"Тип сканирования: ", validators=[DataRequired()],
+                            choices=[('1','Reflected XSS'), ('2','Stored'), ('3','Dom-based XSS'), ('4','Полное')])
     submit = SubmitField("Отправить")
 
 
@@ -148,11 +150,14 @@ class URLForm(FlaskForm):
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
     url = None
-    form = URLForm()
+    scan_type = None
+    form = ScanForm()
     if form.validate_on_submit():
         url = form.url.data
+        scan_type = form.scan_type.data
     form.url.data = ''
-    return render_template('index.html', form=form, url=url)
+    form.scan_type.data = ''
+    return render_template('index.html', form=form, url=url, scan_type=scan_type)
 
 
 # Функция представления адреса сканирования
