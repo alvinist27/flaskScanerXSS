@@ -30,7 +30,10 @@ def is_valid(url):
 def get_links(url):
     urls = set()
     domain_name = urlparse(url).netloc
-    page_content = requests.get(url).content
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+    }
+    page_content = requests.get(url, headers=headers).content
     soup = BeautifulSoup(page_content, "lxml")
 
     for tag in soup.findAll("a"):
@@ -67,7 +70,10 @@ def get_sitemap(url, max_urls=50):
 
 # Функция, которая возвращает список всех HTML-форм с указанной страницы
 def get_forms(url):
-    page_content = requests.get(url).content
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+    }
+    page_content = requests.get(url, headers=headers).content
     soup = BeautifulSoup(page_content, "lxml")
     return soup.find_all("form")
 
