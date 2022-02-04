@@ -30,6 +30,7 @@ def is_valid(url):
 def get_links(url):
     urls = set()
     domain_name = urlparse(url).netloc
+
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
     }
@@ -48,7 +49,7 @@ def get_links(url):
             continue
         if href in internal_urls:
             continue
-        if domain_name not in href:
+        if domain_name not in href or (parsed_href.scheme + "://" + domain_name not in href):
             if href not in external_urls:
                 external_urls.add(href)
             continue
@@ -116,6 +117,9 @@ def submit_form(form_info, url, value):
 
 # Функция Reflected XSS сканирования переданного сайта
 def scan_reflected_xss(url):
+    global internal_urls, external_urls
+    internal_urls = set()
+    external_urls = set()
     is_vulnerable = False
     forms = get_forms(url)
     print(f"[+] {url}: Detected {len(forms)} forms")
@@ -175,8 +179,8 @@ def scan_page():
         url = request.form.get('url')
         scan_type = request.form.get('scan_type')
     get_sitemap(url)
-    return render_template('scan.html', scan_reflected_xss=scan_reflected_xss,
-                           internal_urls=internal_urls, url=url, scan_type=scan_type)
+    return render_template('scan.html', scan_reflected_xss=scan_reflected_xss, internal_urls=internal_urls,
+                           external_urls=external_urls, url=url, scan_type=scan_type)
 
 
 if __name__ == '__main__':
