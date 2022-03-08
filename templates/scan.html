@@ -5,17 +5,18 @@
         <div class="inner_layout">
             <h1>Сканер XSS-уязвимостей</h1>
             <h4>Сканирование сайта {{ url }}</h4>
+            {% set count = namespace(value=0) %}
             {% if scan_type=='1' %}
                 <h4>Тип сканирования: Reflected</h4>
                 <span>Проверено {{ internal_urls|length }} страниц(ы) <br></span>
-                {% set counter = 0 %}
+
                 {% for item in internal_urls %}
                     {% if scan_reflected_xss(item) %}
-                        {% set counter = counter + 1 %}
+                        {% set count.value = count.value + 1 %}
                         {{ item }} - Reflected XSS<br>
                     {% endif %}
                 {% endfor %}
-                 <span>Обнаружено {{ counter }} уязвимости(ей) <br></span>
+                 <span>Обнаружено {{ count.value }} уязвимости(ей) <br></span>
             {% elif scan_type=='2' %}
                 <h2>Тип сканирования: Stored</h2>
             {% elif scan_type=='3' %}
