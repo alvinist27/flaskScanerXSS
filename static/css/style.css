@@ -1,0 +1,44 @@
+body {
+  color: #0D0C26;
+  font-weight: 700;
+  background-color: #0D0C26;
+  font-family: 'Lucida Sans Unicode';
+}
+
+nav, a {
+  color: #ffffff;
+}
+
+p, h1, form {
+  text-align: center;
+}
+
+.inner_layout {
+  width: 600px;
+  height: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#about_block {
+  height: 600px;
+}
+
+.layout {
+  width: 700px;
+  height: 250px;
+  color: #0D0C26;
+  background-color: #ffffff;
+  border: 6px #7922CC;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type=submit] {
+  padding:5px 15px;
+  background:#ccc;
+  border-radius: 5px;
+  border: 6px #7922CC;
+}
