@@ -47,7 +47,7 @@ li a:hover {
 
 .layout {
     width: 700px;
-    height: 300px;
+    min-height: 300px;
     color: #0D0C26;
     background-color: #ffffff;
     border-radius: 30px;
@@ -58,7 +58,7 @@ li a:hover {
 
 .inner_layout {
     width: 700px;
-    height: 300px;
+    min-height: 300px;
     margin-left: auto;
     margin-right: auto;
 }
