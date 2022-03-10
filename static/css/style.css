@@ -1,8 +1,9 @@
 body {
     color: #0D0C26;
-    font-weight: 700;
+    font-weight: 600;
     background-color: #0D0C26;
-    font-family: 'Lucida Sans Unicode';
+    font-family: 'Roboto';
+    letter-spacing: 0.8px;
 }
 
 nav {
@@ -73,24 +74,25 @@ li a:hover {
 }
 
 .inner_layout h1{
-    padding-top: 15px;
-    padding-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 5px;
 }
 
-.inner_layout h1{
-    padding-top: 15px;
-    padding-bottom: 0px;
+.inner_layout h4{
+    padding-bottom: 10px;
 }
 
-form{
-    padding-top: 10px;
-    padding-bottom: 0px;
+form label{
+    display: block;
+    margin-bottom: 10px;
 }
 
 #url {
     width: 218px;
     height: 28px;
-    margin-top: 5px;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 2px;
 }
 
 #scan_type{
@@ -98,7 +100,7 @@ form{
     height: 32px;
     padding: 0px;
     margin: 0px;
-    margin-top: 5px;
+    margin-left: 2px;
 }
 
 input[type=submit] {
@@ -109,6 +111,7 @@ input[type=submit] {
     border-radius: 20px;
     border: 0px;
     color: #0D0C26;
+    margin-top: 30px;
 }
 
 .about_layout {
@@ -131,7 +134,8 @@ input[type=submit] {
 
 .about_inner h1 {
     text-align: center;
-    padding-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 5px;
 }
 
 span {
@@ -155,13 +159,17 @@ span {
 .first {
     width: 370px;
     padding-left: 20px;
+    line-height: 1.4;
 }
 
 .second {
-    width: 620px;
+    width: 530px;
+    padding-left: 10px;
+    line-height: 1.4;
 }
 
 .third {
     width: 500px;
     padding-left: 60px;
+    line-height: 1.4;
 }
