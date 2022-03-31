@@ -24,6 +24,23 @@ ul {
     background-color: #1a184e;
 }
 
+
+/*ul {
+
+    br Поменять
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 87px;
+    background-color: #1a184e;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+}*/
+
+
+
 li {
     height: 57px;
     float: left;

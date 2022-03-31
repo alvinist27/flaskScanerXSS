@@ -153,7 +153,7 @@ def scan_reflected_xss(url):
 class ScanForm(FlaskForm):
     url = StringField("Введите адрес: ", validators=[DataRequired(), URL(message='Must be a valid URL')])
     scan_type = SelectField(u"Тип сканирования: ", validators=[DataRequired()],
-                            choices=[('1', 'Reflected XSS'), ('2', 'Stored XSS'), ('3', 'Dom-based XSS'), ('4', 'Full Scan')])
+                            choices=[('0', ''), ('1', 'Reflected XSS'), ('2', 'Stored XSS'), ('3', 'Dom-based XSS'), ('4', 'Full Scan')])
     submit = SubmitField("Отправить")
 
 
