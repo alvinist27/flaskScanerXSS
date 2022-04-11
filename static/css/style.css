@@ -106,7 +106,7 @@ li a:hover {
 }
 
 .contacts {
-    min-height: 410px;
+    min-height: 420px;
 }
 
 input[id=contact] {
@@ -116,7 +116,7 @@ input[id=contact] {
 
 textarea, input[id=contact] {
     float: left;
-    padding: 0px;
+    padding: 3px;
     margin: 5px;
     resize: none;
 }
