@@ -188,6 +188,11 @@ def about_page():
     return render_template('about.html')
 
 
+@app.route('/contacts', methods=['GET', 'POST'])
+def contacts_page():
+    return render_template('contacts.html')
+
+
 if __name__ == '__main__':
     """
         Алгоритм работы приложения

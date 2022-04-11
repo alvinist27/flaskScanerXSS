@@ -81,13 +81,19 @@ li a:hover {
     margin-right: auto;
 }
 
-.inner_layout p, h1, h4, form {
+.inner_layout p, h1, h2, h4, form {
     text-align: center;
 }
 
 .inner_layout form {
     padding: 0px;
     margin: 0px;
+}
+
+.inner_layout label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .inner_layout h1{
@@ -99,10 +105,26 @@ li a:hover {
     padding-bottom: 10px;
 }
 
-form label{
-    display: block;
-    margin-bottom: 10px;
+.contacts {
+    min-height: 410px;
 }
+
+input[id=contact] {
+    width: 218px;
+    height: 28px;
+}
+
+textarea, input[id=contact] {
+    float: left;
+    padding: 0px;
+    margin: 5px;
+    resize: none;
+}
+
+.form textarea{
+    float: left;
+}
+
 
 #url {
     width: 218px;
